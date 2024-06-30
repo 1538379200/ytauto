@@ -1,0 +1,1 @@
+start "debug-chrome" /min "C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9527 --start-maximized --incognito

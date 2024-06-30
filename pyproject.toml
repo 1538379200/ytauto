@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "ytauto"
+version = "0.1.0"
+description = ""
+authors = [""]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+playwright = "^1.44.0"
+toml = "^0.10.2"
+pytest = "^8.2.2"
+allure-pytest = "^2.13.5"
+loguru = "^0.7.2"
+paramiko = "^3.4.0"
+psycopg2 = "^2.9.9"
+
+
+[[tool.poetry.source]]
+name = "mirrors"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
+priority = "primary"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

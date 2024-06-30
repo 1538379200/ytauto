@@ -1,0 +1,11 @@
+[login.confirm_email_text]
+ko = "복구 이메일 확인"
+en = "Confirm your recovery email"
+zh = "确认您的辅助邮箱"
+zh_tw = "確認備援電子郵件地址"
+
+[login.next_button]
+ko = "다음"
+en = "Next"
+zh = "下一步"
+zh_tw = "下一步"

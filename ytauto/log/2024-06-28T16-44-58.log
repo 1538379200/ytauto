@@ -1,0 +1,16 @@
+2024-06-28 16:44:58.577 | INFO     | ytauto.conftest:pytest_configure:133 - 添加执行设备数据
+2024-06-28 16:44:58.659 | INFO     | ytauto.conftest:pytest_sessionstart:124 - 开始清理日志文件
+2024-06-28 16:44:58.664 | INFO     | ytauto.conftest:pytest_sessionstart:126 - 删除错误截图
+2024-06-28 16:44:58.697 | INFO     | ytauto.conftest:init_base:170 - chrome地址：http://localhost:9527
+2024-06-28 16:44:58.698 | INFO     | ytauto.conftest:init_base:197 - 开始连接chrome浏览器
+2024-06-28 16:45:00.151 | INFO     | ytauto.testcases.test_run_script:test_search_youtube_live:139 - 进入youtube地址
+2024-06-28 16:45:04.333 | INFO     | ytauto.testcases.test_run_script:test_search_youtube_live:143 - 点击登录按钮，跳转Google登录
+2024-06-28 16:45:05.166 | INFO     | ytauto.testcases.test_run_script:test_search_youtube_live:147 - 输入邮箱账号：gregornicole108@gmail.com
+2024-06-28 16:45:05.689 | INFO     | ytauto.testcases.test_run_script:test_search_youtube_live:154 - 输入密码：pC1kofLntJnw
+2024-06-28 16:45:20.670 | SUCCESS  | ytauto.features.login_youtube:checker_loop:15 - 登录成功
+2024-06-28 16:45:20.671 | INFO     | ytauto.testcases.test_run_script:temp_search_live:14 - 搜索直播：BTC
+2024-06-28 16:45:22.635 | INFO     | ytauto.testcases.test_run_script:temp_filter_types:24 - 过滤类型：Today
+2024-06-28 16:45:24.605 | INFO     | ytauto.testcases.test_run_script:temp_filter_types:24 - 过滤类型：Rating
+2024-06-28 16:45:28.449 | INFO     | ytauto.testcases.test_run_script:temp_filter_need_live:72 - 查找账号：adb123454
+2024-06-28 16:45:28.805 | INFO     | ytauto.testcases.test_run_script:temp_filter_need_live:72 - 查找账号：adb123454
+2024-06-28 16:45:29.163 | INFO     | ytauto.testcases.test_run_script:temp_filter_need_live:72 - 查找账号：adb123454

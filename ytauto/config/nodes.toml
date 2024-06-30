@@ -1,0 +1,5 @@
+[[nodes]]
+host = "192.168.14.251"
+port = 22
+username = "root"
+password = "wisdom"

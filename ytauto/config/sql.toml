@@ -1,0 +1,6 @@
+[sql]
+host = "182.89.225.53"
+port = 5432
+username = "postgres"
+password = "123456"
+dbname = "ytauto"
