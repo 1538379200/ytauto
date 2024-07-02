@@ -1,6 +1,7 @@
 import psycopg2
 from pathlib import Path
 import toml
+from typing import Any
 
 
 class SqlHandler:
@@ -16,18 +17,18 @@ class SqlHandler:
         )
         self.cursor = self.conn.cursor()
 
-    def insert_running_device(self, device: str, status: int = -1) -> bool:
+    def insert_running_device(self, device: str, script_name: Any, status: int = -1) -> bool:
         try:
-            self.cursor.execute(f"insert into running_status (device, status) values ('{device}', {status});")
+            self.cursor.execute(f"insert into running_status (device, status, \"script_name\") values ('{device}', {status}, '{script_name}');")
             return True
         except Exception:
             return False
         finally:
             self.conn.commit()
 
-    def change_running(self, device: str, status: int, remarks: str = "") -> bool:
+    def change_running(self, device: str, status: int, script_name: Any, remarks: str = "") -> bool:
         try:
-            self.cursor.execute(f"update running_status set status = {status}, remarks = '{remarks}' where device = '{device}';")
+            self.cursor.execute(f"update running_status set status = {status}, remarks = '{remarks}', script_name='{script_name}' where device = '{device}';")
             return True
         except Exception:
             return False

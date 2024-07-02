@@ -16,6 +16,7 @@ format_str = "%Y-%m-%dT%H-%M-%S"
 log_name = datetime.now().replace(microsecond=0).strftime(format_str)
 logger.add(f"./log/{str(log_name)}.log")
 addr = ""
+script_name = ""
 
 
 # ================================================= Hooks =====================================================
@@ -139,11 +140,12 @@ def pytest_sessionstart(session: pytest.Session):
 
 
 def pytest_configure(config: pytest.Config):
-    global addr
+    global addr, script_name
     logger.info("添加执行设备数据")
     addr = config.getoption("--addr")
+    script_name = config.getoption("--script-name")
     if isinstance(addr, str):
-        sql.insert_running_device(addr.strip(), 0)
+        sql.insert_running_device(device=addr.strip(), script_name=script_name, status=0)
 
 
 @pytest.hookimpl(hookwrapper=True)
@@ -154,14 +156,14 @@ def pytest_runtest_makereport(item: pytest.Item, call: pytest.CallInfo):
     if result.when == "call":
         if isinstance(addr, str):
             if result.outcome == "passed":
-                sql.change_running(addr, 1, "成功")
+                sql.change_running(addr, 1, script_name, "成功")
             else:
                 exc_info = call.excinfo
                 if exc_info is not None:
                     error = str(exc_info.value)
                 else:
                     error = ""
-                sql.change_running(addr, 2, error)
+                sql.change_running(addr, 2, script_name, error)
 
 # ================================================ Fixture ======================================================
 

@@ -20,24 +20,25 @@ class Templates:
         """进行多重过滤操作"""
         page = driver.page
         for filter_word in filter_words:
-            is_found = False
-            logger.info(f"过滤类型：{filter_word}")
-            filter_btn = page.locator('xpath=//div[@id="filter-button"]//button')
-            filter_btn.click()
-            # filter_dialog = page.get_by_role("dialog")
-            filter_dialog = page.locator("tp-yt-paper-dialog").first
-            filter_dialog.wait_for(state="visible")
-            filter_links = filter_dialog.locator('xpath=//a[@id="endpoint"]').all()
-            for link in filter_links:
-                filter_label = link.locator("xpath=//yt-formatted-string").text_content()
-                if filter_label is not None and filter_label in filter_word:
-                    is_found = True
-                    link.click()
-                    page.wait_for_load_state("load")
-                    page.wait_for_timeout(500)
-                    break
-            if is_found is False:
-                logger.error(f"未找到过滤项：{filter_word}")
+            if filter_word.strip():
+                is_found = False
+                logger.info(f"过滤类型：{filter_word}")
+                filter_btn = page.locator('xpath=//div[@id="filter-button"]//button')
+                filter_btn.click()
+                # filter_dialog = page.get_by_role("dialog")
+                filter_dialog = page.locator("tp-yt-paper-dialog").first
+                filter_dialog.wait_for(state="visible")
+                filter_links = filter_dialog.locator('xpath=//a[@id="endpoint"]').all()
+                for link in filter_links:
+                    filter_label = link.locator("xpath=//yt-formatted-string").text_content()
+                    if filter_label is not None and filter_label in filter_word:
+                        is_found = True
+                        link.click()
+                        page.wait_for_load_state("load")
+                        page.wait_for_timeout(500)
+                        break
+                if is_found is False:
+                    logger.error(f"未找到过滤项：{filter_word}")
 
     @staticmethod
     def temp_filter_need_live(driver: Base, sections: list[Locator]) -> bool:
